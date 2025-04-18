@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import type { CountryResponse } from '../interfaces/country-response.interface';
 import { CountryMapper } from '../mappers/country.mappers';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, delay, map, Observable, throwError } from 'rxjs';
 import type { Country } from '../interfaces/country.interface';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class CountryService {
     query = query.toLocaleLowerCase();
     return this.httpClient.get<CountryResponse[]>(`${environment.CountryApi}/capital/${query}`)
       .pipe(
+
         map((resp) => CountryMapper.mapResponseArrayToCountryArray(resp)),
         catchError((error) => {
           return throwError(() => new Error('No se encontró un país con esa capital'));
@@ -30,6 +31,17 @@ export class CountryService {
     return this.httpClient.get<CountryResponse[]>(`${environment.CountryApi}/name/${query}`)
       .pipe(
         map((resp) => CountryMapper.mapResponseArrayToCountryArray(resp)),
+        catchError((error) => {
+          return throwError(() => new Error('No se encontró el país'));
+        })
+      );
+
+  }
+  searchCountryByCode(code: string) {
+    return this.httpClient.get<CountryResponse[]>(`${environment.CountryApi}/alpha/${code}`)
+      .pipe(
+        map((resp) => CountryMapper.mapResponseArrayToCountryArray(resp)),
+        map((countries) => countries.at(0)),
         catchError((error) => {
           return throwError(() => new Error('No se encontró el país'));
         })

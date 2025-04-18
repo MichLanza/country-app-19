@@ -1,10 +1,15 @@
 <!-- <country-search-input placeHolder="Buscar por capital" (searchValue)="query.set($event)"/> -->
 <country-search-input placeHolder="Buscar por capital" (searchValue)="onSearch($event)"/>
-
+<!--
 @if(error()){
 <h3>{{error()}}</h3>
-}
-<country-table [countries]="countries()" />
+} -->
+
+<country-table
+[isEmpty]="countries().length === 0"
+[isLoading]="isLoading()"
+[errorMessage]="error()"
+[countries]="countries()" />
 
 <!-- @if(countryResource.error()){
   <h3>{{countryResource.error()}}</h3>

@@ -32,11 +32,13 @@ export class ByCapitalPageComponent {
 
   onSearch(query: string) {
 
+    if (!query) return;
+
     if (this.isLoading()) return;
 
     this.isLoading.set(true);
     this.error.set(null);
-    if (!query) return;
+
 
     this.countryService.searchByCapital(query).subscribe({
       next: (countries) => {
