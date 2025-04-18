@@ -1,3 +1,7 @@
 <country-search-input placeHolder="Buscar por capital" (searchValue)="onSearch($event)"></country-search-input>
 
-<country-table />
+@if(error()){
+<h3>{{error()}}</h3>
+}
+
+<country-table [countries]="countries()" />

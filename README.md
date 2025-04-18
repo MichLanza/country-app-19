@@ -2,6 +2,20 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
 
+- Rutas hijas
+- Rutas Anidadas
+- Creación y comunicación entre componentes
+- Tailwind y DaisyUI
+- Archivo de rutas por feature / module
+- Carga perezosa de módulos de rutas
+- Resources
+- rxResources
+- Señales
+- Servicios
+- Reutilización de componentes
+- Peticiones http
+- Operadores de RXJS
+
 ## Development server
 
 To start a local development server, run:
