@@ -11,7 +11,9 @@ export class CountryMapper {
       flagSvg: countryResponse.flags.svg,
       name: countryResponse.translations['spa'].common ?? 'No Name',
       capital: countryResponse.capital.join(','),
-      population: countryResponse.population
+      population: countryResponse.population,
+      region: countryResponse.region,
+      subRegion: countryResponse.subregion,
     }
   }
 

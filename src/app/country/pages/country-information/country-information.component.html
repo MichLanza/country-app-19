@@ -1,0 +1,28 @@
+<section class="stats shadow">
+  <div class="stat place-items-center">
+    <div class="stat-title">Población</div>
+    <div class="stat-value">{{country().population | number }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Nombre</div>
+    <div class="stat-value text-secondary">{{country().name}}</div>
+    <div class="stat-desc text-secondary">{{country().region}}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Sub Región</div>
+    <div class="stat-value">{{country().subRegion}}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Bandera</div>
+    <div class="stat-value">{{country().flag}}</div>
+  </div>
+</section>
+
+<section class="diff aspect-16/9" >
+  <div role="img">
+    <img [alt]="country().name" [src]="country().flagSvg" />
+  </div>
+</section>
