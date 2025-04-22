@@ -15,7 +15,11 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - Reutilización de componentes
 - Peticiones http
 - Operadores de RXJS
-
+- Caché
+- Router
+- QueryParameters
+- Configuraciones
+- Debounce
 ## Development server
 
 To start a local development server, run:
